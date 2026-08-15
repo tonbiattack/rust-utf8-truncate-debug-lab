@@ -17,7 +17,8 @@ pub fn abbreviate_for_log(text: &str, max_chars: usize) -> String {
         text.is_char_boundary(max_chars)
     );
 
-    format!("{}…", &text[..max_chars])
+    let prefix: String = text.chars().take(max_chars).collect();
+    format!("{prefix}…")
 }
 
 #[cfg(test)]
